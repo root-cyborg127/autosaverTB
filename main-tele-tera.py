@@ -43,7 +43,7 @@ def save_shared_file_to_terabox(driver, share_link):
         driver.get(share_link)
 
         # Wait for the save button to be clickable, with a timeout
-        WebDriverWait(driver, 60).until(
+        WebDriverWait(driver, 5).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, "div.action-bar-save.btn"))
         )
 
@@ -52,7 +52,7 @@ def save_shared_file_to_terabox(driver, share_link):
         time.sleep(3)
 
         try:
-            email_input = WebDriverWait(driver, 60).until(
+            email_input = WebDriverWait(driver, 5).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, "input.email-input"))
             )
             password_input = driver.find_element(By.CSS_SELECTOR, "input.pwd-input")
